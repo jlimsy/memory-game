@@ -1,10 +1,10 @@
 import Grid from "../components/Grid";
 import Timer from "../components/Timer";
 
-export default function GamePage() {
+export default function GamePage({ grid }) {
   return (
     <>
-      <Grid />
+      <Grid grid={grid} />
       <Timer />
     </>
   );

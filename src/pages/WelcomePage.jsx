@@ -1,11 +1,14 @@
 import { useState } from "react";
 import GamePage from "./GamePage";
+import gridSize from "../utils/gridSize";
 
 export default function WelcomePage() {
   const [level, setLevel] = useState(1);
+  const [grid, setGrid] = useState(gridSize.level1.size);
 
   const handleLevel = () => {
     setLevel(level + 1);
+    setGrid;
   };
 
   return (
@@ -23,7 +26,7 @@ export default function WelcomePage() {
       <button onClick={handleLevel}>Next Level</button>
       <h1>Current Level: {level}</h1>
       <button>Restart</button>
-      <GamePage />
+      <GamePage grid={grid} />
     </>
   );
 }
