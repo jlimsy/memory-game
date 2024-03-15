@@ -12,7 +12,7 @@ export default function Grid() {
   return (
     <>
       {rows.map((cell, idx) => (
-        <div key={idx} className="cell">
+        <div key={idx} className="cell border h-32 w-32 ">
           cell
         </div>
       ))}
