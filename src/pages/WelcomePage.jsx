@@ -1,6 +1,13 @@
+import { useState } from "react";
 import GamePage from "./GamePage";
 
 export default function WelcomePage() {
+  const [level, setLevel] = useState(1);
+
+  const handleLevel = () => {
+    setLevel(level + 1);
+  };
+
   return (
     <>
       <h1>Welcome</h1>
@@ -13,7 +20,8 @@ export default function WelcomePage() {
         There are 10 levels in this game.
       </p>
       <button>Start</button>
-      <button>Next Level</button>
+      <button onClick={handleLevel}>Next Level</button>
+      <h1>Current Level: {level}</h1>
       <button>Restart</button>
       <GamePage />
     </>
