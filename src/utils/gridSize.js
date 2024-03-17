@@ -31,7 +31,7 @@ const gridSize = {
 
   level7: {
     size: 5,
-    green: 7,
+    green: 6,
   },
 
   level8: {
