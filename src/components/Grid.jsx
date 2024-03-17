@@ -5,6 +5,7 @@ export default function Grid({ grid, show, setShow }) {
   let numCells;
   for (let i = 1; i <= grid; i++) {
     numCells = [...Array(Math.pow(i, 2))].map((cell, idx) => idx);
+    numCells.sort(() => Math.random() - 0.5);
   }
 
   console.log(numCells.length);

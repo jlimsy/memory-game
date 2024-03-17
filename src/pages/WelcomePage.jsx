@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import GamePage from "./GamePage";
-import gridSize from "../utils/gridSize";
 
 export default function WelcomePage() {
   const [start, setStart] = useState(false);
   const [level, setLevel] = useState(1);
-  const [grid, setGrid] = useState(gridSize.level1.size);
   const [seconds, setSeconds] = useState(15);
   const [isRunning, setIsRunning] = useState(false);
   const [show, setShow] = useState(true);
@@ -20,16 +18,6 @@ export default function WelcomePage() {
       }
     }
   }, [seconds]);
-
-  const handleLevel = () => {
-    setLevel(level + 1);
-    // setGrid(gridSize[`level+${level}`].size);
-    setGrid(gridSize[`level${level}`].size);
-    console.log("level", level);
-    console.log("grid", grid);
-    setShow(true);
-    setSeconds(15);
-  };
 
   const handleStart = () => {
     setStart(true);
@@ -53,32 +41,38 @@ export default function WelcomePage() {
 
       {start || (
         <div className="flex flex-col max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
-          <h2 className="text-left">Instructions</h2>
-          <p className="text-left">
-            You are given 15 seconds to memorise the postion of the green
-            squares. After 15 seconds, the green squares will be covered and you
-            have to click on the squares where the green sqaures were
-            previously. Click on all green squares correctly, and you can
-            proceed to the next level. There are 10 levels in this game.
-          </p>
+          <h2 className="text-left mb-4">Instructions</h2>
+          <ol className="space-y-4 mb-4 text-left list-decimal list-inside">
+            <li>
+              You are given{" "}
+              <span className="font-bold text-green-500">
+                {seconds} seconds
+              </span>{" "}
+              to remember the location of the green squares.
+            </li>
+            <li> After 15 seconds, the green squares will be covered.</li>
+            <li>
+              Click on the squares where the green squares were located
+              previously.
+            </li>
+            <li>
+              Click on all green squares correctly to proceed to the next level.
+              There are 10 levels in this game.
+            </li>
+          </ol>
           <button onClick={handleStart}>Start Game</button>
         </div>
       )}
       <div>
         {start && (
           <GamePage
-            grid={grid}
             seconds={seconds}
             show={show}
             setShow={setShow}
+            level={level}
+            setLevel={setLevel}
           />
         )}
-        <div>
-          {" "}
-          <button onClick={handleLevel}>Next Level</button>
-          <button>Restart</button>
-          <h1>Grid size {grid}</h1>
-        </div>
       </div>
     </div>
   );
