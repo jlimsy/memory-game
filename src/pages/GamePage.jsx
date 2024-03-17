@@ -24,7 +24,7 @@ export default function GamePage({
   return (
     <>
       <Timer seconds={seconds} />
-      <div className={`grid grid-cols-${grid}`}>
+      <div className={`grid grid-cols-3 gap-3`}>
         <Grid grid={grid} show={show} setShow={setShow} />
       </div>
       <button onClick={handleLevel}>Next Level</button>

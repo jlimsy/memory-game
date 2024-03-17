@@ -4,7 +4,7 @@ import GamePage from "./GamePage";
 export default function WelcomePage() {
   const [start, setStart] = useState(false);
   const [level, setLevel] = useState(1);
-  const [seconds, setSeconds] = useState(15);
+  const [seconds, setSeconds] = useState(5);
   const [isRunning, setIsRunning] = useState(false);
   const [show, setShow] = useState(true);
 
@@ -52,8 +52,9 @@ export default function WelcomePage() {
             </li>
             <li> After 15 seconds, the green squares will be covered.</li>
             <li>
-              Click on the squares where the green squares were located
-              previously.
+              Click on the squares where the{" "}
+              <span className="font-bold text-green-500">green squares</span>{" "}
+              were previously located.
             </li>
             <li>
               Click on all green squares correctly to proceed to the next level.
@@ -67,6 +68,7 @@ export default function WelcomePage() {
         {start && (
           <GamePage
             seconds={seconds}
+            setSeconds={setSeconds}
             show={show}
             setShow={setShow}
             level={level}
