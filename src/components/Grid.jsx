@@ -3,17 +3,14 @@ import { useState } from "react";
 export default function Grid({ grid }) {
   const [green, setGreen] = useState(true);
 
-  let rows = [];
-  let columns = [];
-
-  for (let i = 0; i < grid; i++) {
-    rows.push(i);
-    columns.push(i);
+  let numCells;
+  for (let i = 1; i <= grid; i++) {
+    numCells = [...Array(Math.pow(i, 2))];
   }
 
   return (
     <>
-      {rows.map((cell, idx) =>
+      {numCells.map((cell, idx) =>
         setGreen ? (
           <div key={idx} className="cell border h-32 w-32 bg-lime-400">
             cell
