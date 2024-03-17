@@ -3,6 +3,7 @@ import GamePage from "./GamePage";
 import gridSize from "../utils/gridSize";
 
 export default function WelcomePage() {
+  const [start, setStart] = useState(false);
   const [level, setLevel] = useState(1);
   const [grid, setGrid] = useState(gridSize.level1.size);
 
@@ -28,15 +29,17 @@ export default function WelcomePage() {
             proceed to the next level. There are 10 levels in this game.
           </p>
         </div>
-      </div>
-      <button>Start</button>
+      </div>{" "}
+      {start && (
+        <div className={`grid grid-cols-${grid} grid-rows-${grid}`}>
+          <GamePage grid={grid} />
+        </div>
+      )}
+      <button onClick={() => setStart(true)}>Start</button>
       <button onClick={handleLevel}>Next Level</button>
       <h1>Current Level: {level}</h1>
       <button>Restart</button>
       <h1>Grid size {grid}</h1>
-      <div className={`grid grid-cols-${grid} grid-rows-${grid}`}>
-        <GamePage grid={grid} />
-      </div>
     </div>
   );
 }
