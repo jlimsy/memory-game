@@ -8,14 +8,17 @@ export default function WelcomePage() {
 
   const handleLevel = () => {
     setLevel(level + 1);
-    setGrid;
+    // setGrid(gridSize[`level+${level}`].size);
+    setGrid(gridSize[`level${level}`].size);
+    console.log("level", level);
+    console.log("grid", grid);
   };
 
   return (
     <div className="flex h-full">
       <div className="card card-compact w-96 bg-base-100 shadow-xl">
-        <div className="card-body">
-          <h1 className="">Memory game</h1>
+        <div className="card-body bg-green-400">
+          <h1>Memory game</h1>
           <h2>Instructions</h2>
           <p>
             You are given 15 seconds to memorise the postion of the green
@@ -30,7 +33,8 @@ export default function WelcomePage() {
       <button onClick={handleLevel}>Next Level</button>
       <h1>Current Level: {level}</h1>
       <button>Restart</button>
-      <div className={`grid grid-cols-${grid}`}>
+      <h1>Grid size {grid}</h1>
+      <div className={`grid grid-cols-${grid} grid-rows-${grid}`}>
         <GamePage grid={grid} />
       </div>
     </div>
