@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import GamePage from "./GamePage";
+import Grid from "../components/Grid";
 
 export default function WelcomePage() {
   const [start, setStart] = useState(false);

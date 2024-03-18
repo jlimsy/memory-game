@@ -21,13 +21,14 @@ export default function GamePage({
     setShow(true);
     setSeconds(15);
   };
+
+  console.log(grid);
+
   return (
     <>
       <Timer seconds={seconds} />
-      <div className={`grid grid-cols-3 gap-3`}>
-        <Grid grid={grid} show={show} setShow={setShow} />
-      </div>
-      <button onClick={handleLevel}>Next Level</button>
+      <Grid grid={grid} show={show} setShow={setShow} />
+      {level < 10 && <button onClick={handleLevel}>Next Level</button>}
       <button>Restart</button>
     </>
   );
