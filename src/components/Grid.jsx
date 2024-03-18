@@ -22,7 +22,7 @@ export default function Grid({ grid, show, setShow, level }) {
   return (
     <div className={`grid grid-cols-${grid} gap-3`}>
       {numCells.map((cell, idx) => (
-        <Cell key={idx} />
+        <Cell key={idx} id={idx} />
       ))}
     </div>
   );
