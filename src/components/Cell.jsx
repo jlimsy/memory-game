@@ -1,5 +1,5 @@
 export default function Cell() {
-  const handleFlip = () => {
+  const handleFlip = (event) => {
     console.log("flip!");
   };
   return (

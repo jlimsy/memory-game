@@ -30,7 +30,7 @@ export default function GamePage({
   return (
     <>
       <Timer seconds={seconds} />
-      <Grid grid={grid} show={show} setShow={setShow} />
+      <Grid grid={grid} show={show} setShow={setShow} level={level} />
       {level < 10 && <button onClick={handleLevel}>Next Level</button>}
       <button onClick={handleRestart}>Restart</button>
     </>
