@@ -7,7 +7,6 @@ export default function Grid({ grid, show, setShow, level }) {
   const [green, setGreen] = useState([]);
 
   let numCells = [...Array(Math.pow(grid, 2))].map((cell, idx) => idx);
-  let greenCells = [];
 
   useEffect(() => {
     //give each cell an id
@@ -15,12 +14,14 @@ export default function Grid({ grid, show, setShow, level }) {
     // randomly assign cell ids to be set to green
     numCells.sort(() => Math.random() - 0.5);
 
+    let greenCells = [];
     for (let i = 0; i < gridSize[`level${level}`].green; i++) {
       greenCells.push(numCells[i]);
     }
 
     setGreen(greenCells);
     console.log("green", green);
+    console.log("no. green cells", gridSize[`level${level}`].green);
   }, [level]);
 
   return (
