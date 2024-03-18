@@ -16,8 +16,6 @@ export default function GamePage({
   const handleLevel = () => {
     setLevel(level + 1);
     setGrid(gridSize[`level${level}`].size);
-    console.log("level", level);
-    console.log("grid", grid);
     setShow(true);
     setSeconds(5);
   };
