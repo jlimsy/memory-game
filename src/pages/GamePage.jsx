@@ -19,9 +19,12 @@ export default function GamePage({
     console.log("level", level);
     console.log("grid", grid);
     setShow(true);
-    setSeconds(15);
+    setSeconds(5);
   };
 
+  const handleRestart = () => {
+    window.location.reload();
+  };
   console.log(grid);
 
   return (
@@ -29,7 +32,7 @@ export default function GamePage({
       <Timer seconds={seconds} />
       <Grid grid={grid} show={show} setShow={setShow} />
       {level < 10 && <button onClick={handleLevel}>Next Level</button>}
-      <button>Restart</button>
+      <button onClick={handleRestart}>Restart</button>
     </>
   );
 }
