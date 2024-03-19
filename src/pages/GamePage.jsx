@@ -14,6 +14,7 @@ export default function GamePage({
   setLevel,
 }) {
   const [grid, setGrid] = useState(gridSize.level1.size);
+  const [green, setGreen] = useState([]);
   const [selectedCells, setSelectedCells] = useState([]);
 
   const handleLevel = () => {
@@ -36,11 +37,14 @@ export default function GamePage({
         <Timer seconds={seconds} />
         <span>to remember location of green squares</span>
       </div>
+      No. of green cells left: {gridSize[`level${level}`].green}
       <Grid
         grid={grid}
         show={show}
         setShow={setShow}
         level={level}
+        green={green}
+        setGreen={setGreen}
         selectedCells={selectedCells}
         setSelectedCells={setSelectedCells}
         isRunning={isRunning}

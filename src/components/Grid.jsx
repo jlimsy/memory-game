@@ -7,12 +7,12 @@ export default function Grid({
   show,
   setShow,
   level,
+  green,
+  setGreen,
   selectedCells,
   setSelectedCells,
   isRunning,
 }) {
-  const [green, setGreen] = useState([]);
-
   //* give each cell an id
   let numCells = [...Array(Math.pow(grid, 2))].map((cell, idx) => idx);
 
@@ -26,7 +26,6 @@ export default function Grid({
     }
 
     setGreen(greenCells);
-    console.log("green", green);
     console.log(selectedCells);
   }, [level]);
 

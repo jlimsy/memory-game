@@ -14,9 +14,10 @@ export default function Cell({
   let greenCells = green;
 
   useEffect(() => {
-    console.log("green", green);
+    console.log("greenCells", greenCells);
     console.log("selected", selectedCells);
     console.log("isRunning", isRunning);
+    console.log("flip", flip);
   }, [selectedCells, isRunning]);
 
   const handleFlip = (event) => {
@@ -25,16 +26,19 @@ export default function Cell({
       setSelectedCells([...selectedCells, event.target.id]);
     }
 
-    setFlip(true);
+    if (greenCells.includes(parseInt(event.target.id))) {
+      setFlip(true);
+      console.log("setFlip", flip);
+    }
   };
 
   return (
     <>
-      <CSSTransition in={!isRunning && !flip} timeout={1000} classNames="flip">
+      <CSSTransition in={!flip} timeout={1000} classNames="flip">
         <div
           id={`${id}`}
           className={`border border-neutral-600 h-32 w-32 rounded-lg ${
-            greenCells.includes(id) && show ? "bg-green-400" : ""
+            greenCells.includes(id) && (show || flip) ? "bg-green-400" : ""
           }`}
           onClick={handleFlip}
         ></div>
