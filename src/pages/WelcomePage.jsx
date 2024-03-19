@@ -9,7 +9,6 @@ export default function WelcomePage() {
   const [show, setShow] = useState(true);
 
   useEffect(() => {
-    console.log("isRunning", isRunning);
     if (isRunning) {
       seconds > 0 && setTimeout(() => setSeconds(seconds - 1), 1000);
       if (seconds === 0) {
@@ -69,6 +68,7 @@ export default function WelcomePage() {
           <GamePage
             seconds={seconds}
             setSeconds={setSeconds}
+            setIsRunning={setIsRunning}
             show={show}
             setShow={setShow}
             level={level}

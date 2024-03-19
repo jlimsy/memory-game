@@ -6,6 +6,7 @@ import gridSize from "../utils/gridSize";
 export default function GamePage({
   seconds,
   setSeconds,
+  setIsRunning,
   show,
   setShow,
   level,
@@ -18,6 +19,7 @@ export default function GamePage({
     setGrid(gridSize[`level${level}`].size);
     setShow(true);
     setSeconds(5);
+    setIsRunning(true);
   };
 
   const handleRestart = () => {
