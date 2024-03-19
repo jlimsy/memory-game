@@ -21,7 +21,10 @@ export default function Cell({
 
   const handleFlip = (event) => {
     console.log("flip:", event.target.id);
-    setSelectedCells([...selectedCells, event.target.id]);
+    if (!selectedCells.includes(event.target.id)) {
+      setSelectedCells([...selectedCells, event.target.id]);
+    }
+
     setFlip(true);
   };
 
