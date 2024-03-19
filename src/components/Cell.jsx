@@ -9,6 +9,7 @@ export default function Cell({
   selectedCells,
   setSelectedCells,
   isRunning,
+  complete,
 }) {
   const [flip, setFlip] = useState(false);
 
@@ -17,9 +18,12 @@ export default function Cell({
   useEffect(() => {
     console.log("greenCells", greenCells);
     console.log("selected", selectedCells);
-    console.log("isRunning", isRunning);
-    console.log("flip", flip);
-  }, [selectedCells, isRunning]);
+    console.log("setFlip???", flip);
+
+    if (complete) {
+      setFlip(false);
+    }
+  }, [selectedCells, complete]);
 
   const handleFlip = (event) => {
     console.log("flip:", event.target.id);
@@ -28,8 +32,9 @@ export default function Cell({
     }
 
     if (greenCells.includes(parseInt(event.target.id))) {
+      console.log("the cell is green");
       setFlip(true);
-      console.log("setFlip", flip);
+      console.log("flip if correct cell", flip);
     }
   };
 
@@ -39,7 +44,9 @@ export default function Cell({
         <div
           id={`${id}`}
           className={`border border-neutral-600 h-32 w-32 rounded-lg ${
-            greenCells.includes(id) && (show || flip) ? "bg-green-400" : ""
+            greenCells.includes(id) && (show || flip || complete)
+              ? "bg-green-400"
+              : ""
           }`}
           onClick={isRunning ? null : handleFlip}
         ></div>

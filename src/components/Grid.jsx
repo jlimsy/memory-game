@@ -57,6 +57,7 @@ export default function Grid({
           selectedCells={selectedCells}
           setSelectedCells={setSelectedCells}
           isRunning={isRunning}
+          complete={complete}
         />
       ))}
     </div>
