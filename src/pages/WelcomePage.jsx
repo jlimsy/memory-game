@@ -68,6 +68,7 @@ export default function WelcomePage() {
           <GamePage
             seconds={seconds}
             setSeconds={setSeconds}
+            isRunning={isRunning}
             setIsRunning={setIsRunning}
             show={show}
             setShow={setShow}

@@ -6,6 +6,7 @@ import gridSize from "../utils/gridSize";
 export default function GamePage({
   seconds,
   setSeconds,
+  isRunning,
   setIsRunning,
   show,
   setShow,
@@ -13,6 +14,7 @@ export default function GamePage({
   setLevel,
 }) {
   const [grid, setGrid] = useState(gridSize.level1.size);
+  const [selectedCells, setSelectedCells] = useState([]);
 
   const handleLevel = () => {
     setLevel(level + 1);
@@ -20,8 +22,8 @@ export default function GamePage({
     setShow(true);
     setSeconds(5);
     setIsRunning(true);
+    setSelectedCells([]);
   };
-  console.log("setShow", show);
 
   const handleRestart = () => {
     window.location.reload();
@@ -29,11 +31,24 @@ export default function GamePage({
   console.log(grid);
 
   return (
-    <>
-      <Timer seconds={seconds} />
-      <Grid grid={grid} show={show} setShow={setShow} level={level} />
-      {level < 10 && <button onClick={handleLevel}>Next Level</button>}
+    <div className="grid gap-3">
+      <div className="text-center mb-5">
+        <Timer seconds={seconds} />
+        <span>to remember location of green squares</span>
+      </div>
+      <Grid
+        grid={grid}
+        show={show}
+        setShow={setShow}
+        level={level}
+        selectedCells={selectedCells}
+        setSelectedCells={setSelectedCells}
+        isRunning={isRunning}
+      />
+      {(level < 10 && isRunning) || (
+        <button onClick={handleLevel}>Next Level</button>
+      )}
       <button onClick={handleRestart}>Restart</button>
-    </>
+    </div>
   );
 }

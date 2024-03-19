@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Tailwind customisation */
+
 @layer base {
   body {
     @apply bg-neutral-200;
@@ -20,22 +22,40 @@
     }
   }
 
-  .grid-cols-3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
+/* dynamic screen size */
+  
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
 
-  .grid-cols-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
+.grid-cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
 
-  .grid-cols-5 {
-    grid-template-columns: repeat(5, 1fr);
-  }
+.grid-cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
 
-  .grid-cols-6 {
-    grid-template-columns: repeat(6, 1fr);
-  }
+.grid-cols-6 {
+  grid-template-columns: repeat(6, 1fr);
+}
 
-  .grid-cols-7 {
-    grid-template-columns: repeat(7, 1fr);
-  }
+.grid-cols-7 {
+  grid-template-columns: repeat(7, 1fr);
+}
+
+/* animations */
+
+.flip-exit {
+  transform: rotateY(0deg);
+}
+
+.flip-exit-active {
+  transform: rotateY(180deg);
+  transition: transform 300ms;
+}
+
+.flip-exit-done {
+  transform: rotateY(180deg);
+
+}

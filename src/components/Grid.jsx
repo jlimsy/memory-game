@@ -1,11 +1,17 @@
 import { useEffect, useState } from "react";
-import { CSSTransition } from "react-transition-group";
 import Cell from "./Cell";
 import gridSize from "../utils/gridSize";
 
-export default function Grid({ grid, show, setShow, level }) {
+export default function Grid({
+  grid,
+  show,
+  setShow,
+  level,
+  selectedCells,
+  setSelectedCells,
+  isRunning,
+}) {
   const [green, setGreen] = useState([]);
-  const [selectedCells, setSelectedCells] = useState([]);
 
   //* give each cell an id
   let numCells = [...Array(Math.pow(grid, 2))].map((cell, idx) => idx);
@@ -22,7 +28,7 @@ export default function Grid({ grid, show, setShow, level }) {
     setGreen(greenCells);
     console.log("green", green);
     console.log(selectedCells);
-  }, [level, selectedCells]);
+  }, [level]);
 
   return (
     <div className={`grid grid-cols-${grid} gap-3`}>
@@ -35,6 +41,7 @@ export default function Grid({ grid, show, setShow, level }) {
           setShow={setShow}
           selectedCells={selectedCells}
           setSelectedCells={setSelectedCells}
+          isRunning={isRunning}
         />
       ))}
     </div>
