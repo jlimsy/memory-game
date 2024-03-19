@@ -4,7 +4,7 @@ import GamePage from "./GamePage";
 export default function WelcomePage() {
   const [start, setStart] = useState(false);
   const [level, setLevel] = useState(1);
-  const [seconds, setSeconds] = useState(5);
+  const [seconds, setSeconds] = useState(3);
   const [isRunning, setIsRunning] = useState(false);
   const [show, setShow] = useState(true);
 

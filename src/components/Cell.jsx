@@ -11,6 +11,7 @@ export default function Cell({
   isRunning,
 }) {
   const [flip, setFlip] = useState(false);
+
   let greenCells = green;
 
   useEffect(() => {

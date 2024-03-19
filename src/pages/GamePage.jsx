@@ -16,6 +16,7 @@ export default function GamePage({
   const [grid, setGrid] = useState(gridSize.level1.size);
   const [green, setGreen] = useState([]);
   const [selectedCells, setSelectedCells] = useState([]);
+  const [complete, setComplete] = useState(false);
 
   const handleLevel = () => {
     setLevel(level + 1);
@@ -24,12 +25,14 @@ export default function GamePage({
     setSeconds(5);
     setIsRunning(true);
     setSelectedCells([]);
+    setComplete(false);
   };
 
   const handleRestart = () => {
     window.location.reload();
   };
-  console.log(grid);
+
+  console.log("complete", complete);
 
   return (
     <div className="grid gap-3">
@@ -48,11 +51,13 @@ export default function GamePage({
         selectedCells={selectedCells}
         setSelectedCells={setSelectedCells}
         isRunning={isRunning}
+        complete={complete}
+        setComplete={setComplete}
       />
-      {(level < 10 && isRunning) || (
+      {(level < 10 && !complete) || (
         <button onClick={handleLevel}>Next Level</button>
       )}
-      <button onClick={handleRestart}>Restart</button>
+      {level === 10 && <button onClick={handleRestart}>Restart Game</button>}
     </div>
   );
 }
