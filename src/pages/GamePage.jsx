@@ -21,6 +21,7 @@ export default function GamePage({
     setSeconds(5);
     setIsRunning(true);
   };
+  console.log("setShow", show);
 
   const handleRestart = () => {
     window.location.reload();

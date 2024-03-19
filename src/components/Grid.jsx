@@ -31,6 +31,8 @@ export default function Grid({ grid, show, setShow, level }) {
           key={idx}
           id={idx}
           green={green}
+          show={show}
+          setShow={setShow}
           selectedCells={selectedCells}
           setSelectedCells={setSelectedCells}
         />
