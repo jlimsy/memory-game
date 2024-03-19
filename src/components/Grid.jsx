@@ -36,7 +36,7 @@ export default function Grid({
 
   for (let i of green) {
     if (selectedCells.includes(i.toString())) {
-      correctCells.push(selectedCells.includes(i.toString()));
+      correctCells.push(i);
     }
   }
 
