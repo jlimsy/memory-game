@@ -40,7 +40,7 @@ export default function Cell({
           className={`border border-neutral-600 h-32 w-32 rounded-lg ${
             greenCells.includes(id) && (show || flip) ? "bg-green-400" : ""
           }`}
-          onClick={handleFlip}
+          onClick={isRunning ? null : handleFlip}
         ></div>
 
         {/* {greenCells.includes(id) && show ? (
