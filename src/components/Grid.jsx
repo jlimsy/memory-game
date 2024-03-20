@@ -14,6 +14,8 @@ export default function Grid({
   isRunning,
   complete,
   setComplete,
+  remainingCells,
+  setRemainingCells,
 }) {
   //* give each cell an id
   let numCells = [...Array(Math.pow(grid, 2))].map((cell, idx) => idx);
@@ -39,6 +41,8 @@ export default function Grid({
         correctCells.push(i);
       }
     }
+
+    setRemainingCells(gridSize[`level${level}`].green - correctCells.length);
 
     if (correctCells.length === gridSize[`level${level}`].green) {
       // console.log("complete!", complete);
