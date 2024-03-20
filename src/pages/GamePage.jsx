@@ -22,7 +22,7 @@ export default function GamePage({
     setLevel(level + 1);
     setGrid(gridSize[`level${level}`].size);
     setShow(true);
-    setSeconds(5);
+    setSeconds(3);
     setIsRunning(true);
     setSelectedCells([]);
     setComplete(false);
@@ -31,8 +31,6 @@ export default function GamePage({
   const handleRestart = () => {
     window.location.reload();
   };
-
-  console.log("complete", complete);
 
   return (
     <div className="grid gap-3">
@@ -55,7 +53,10 @@ export default function GamePage({
         setComplete={setComplete}
       />
       {(level < 10 && !complete) || (
-        <button onClick={handleLevel}>Next Level</button>
+        <div className="text-center">
+          <h1>You have completed this level!</h1>
+          <button onClick={handleLevel}>Next Level</button>
+        </div>
       )}
       {level === 10 && <button onClick={handleRestart}>Restart Game</button>}
     </div>

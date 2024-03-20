@@ -28,22 +28,24 @@ export default function Grid({
     }
 
     setGreen(greenCells);
-    console.log(selectedCells);
   }, [level]);
 
-  //* check if selectedCells contain all elements in green
-  let correctCells = [];
+  useEffect(() => {
+    //* check if selectedCells contain all elements in green
+    let correctCells = [];
 
-  for (let i of green) {
-    if (selectedCells.includes(i.toString())) {
-      correctCells.push(i);
+    for (let i of green) {
+      if (selectedCells.includes(i.toString())) {
+        correctCells.push(i);
+      }
     }
-  }
 
-  if (correctCells.length === gridSize[`level${level}`].green) {
-    setComplete(true);
-    console.log("complete", complete);
-  }
+    if (correctCells.length === gridSize[`level${level}`].green) {
+      // console.log("complete!", complete);
+      setComplete(true);
+      // console.log("complete!", complete);
+    }
+  }, [selectedCells, green, level, setComplete]);
 
   return (
     <div className={`grid grid-cols-${grid} gap-3`}>

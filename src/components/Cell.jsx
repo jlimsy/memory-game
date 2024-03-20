@@ -16,14 +16,10 @@ export default function Cell({
   let greenCells = green;
 
   useEffect(() => {
-    console.log("greenCells", greenCells);
-    console.log("selected", selectedCells);
-    console.log("setFlip???", flip);
-
     if (complete) {
       setFlip(false);
     }
-  }, [selectedCells, complete]);
+  }, [complete]);
 
   const handleFlip = (event) => {
     console.log("flip:", event.target.id);
@@ -32,26 +28,24 @@ export default function Cell({
     }
 
     if (greenCells.includes(parseInt(event.target.id))) {
-      console.log("the cell is green");
       setFlip(true);
-      console.log("flip if correct cell", flip);
     }
   };
 
   return (
     <>
-      <CSSTransition in={!flip} timeout={1000} classNames="flip">
-        <div
-          id={`${id}`}
-          className={`border border-neutral-600 h-32 w-32 rounded-lg ${
-            greenCells.includes(id) && (show || flip || complete)
-              ? "bg-green-400"
-              : ""
-          }`}
-          onClick={isRunning ? null : handleFlip}
-        ></div>
+      {/* <CSSTransition in={!flip} timeout={1000} classNames="flip"> */}
+      <div
+        id={`${id}`}
+        className={`border border-neutral-600 h-32 w-32 rounded-lg ${
+          greenCells.includes(id) && (show || flip || complete)
+            ? "bg-green-400"
+            : ""
+        }`}
+        onClick={isRunning ? null : handleFlip}
+      ></div>
 
-        {/* {greenCells.includes(id) && show ? (
+      {/* {greenCells.includes(id) && show ? (
         <div
           id={`${id}`}
           className="front border border-neutral-600 h-32 w-32 rounded-lg bg-green-400"
@@ -67,7 +61,7 @@ export default function Cell({
           {id}
         </div>
       )} */}
-      </CSSTransition>
+      {/* </CSSTransition> */}
     </>
   );
 }
