@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
 
 export default function Cell({
@@ -11,6 +11,7 @@ export default function Cell({
   isRunning,
   complete,
 }) {
+  const nodeRef = useRef(null);
   const [flip, setFlip] = useState(false);
 
   let greenCells = green;
@@ -22,7 +23,6 @@ export default function Cell({
   }, [complete]);
 
   const handleFlip = (event) => {
-    console.log("flip:", event.target.id);
     if (!selectedCells.includes(event.target.id)) {
       setSelectedCells([...selectedCells, event.target.id]);
     }
@@ -34,18 +34,24 @@ export default function Cell({
 
   return (
     <>
-      {/* <CSSTransition in={!flip} timeout={1000} classNames="flip"> */}
-      <div
-        id={`${id}`}
-        className={`border border-neutral-600 h-32 w-32 rounded-lg ${
-          greenCells.includes(id) && (show || flip || complete)
-            ? "bg-green-400"
-            : ""
-        }`}
-        onClick={isRunning ? null : handleFlip}
-      ></div>
+      <CSSTransition
+        nodeRef={nodeRef}
+        in={!flip}
+        timeout={1000}
+        classNames="flip"
+      >
+        <div
+          id={`${id}`}
+          ref={nodeRef}
+          className={`border border-neutral-600 h-32 w-32 rounded-lg ${
+            greenCells.includes(id) && (show || flip || complete)
+              ? "bg-green-400"
+              : ""
+          }`}
+          onClick={isRunning ? null : handleFlip}
+        ></div>
 
-      {/* {greenCells.includes(id) && show ? (
+        {/* {greenCells.includes(id) && show ? (
         <div
           id={`${id}`}
           className="front border border-neutral-600 h-32 w-32 rounded-lg bg-green-400"
@@ -61,7 +67,7 @@ export default function Cell({
           {id}
         </div>
       )} */}
-      {/* </CSSTransition> */}
+      </CSSTransition>
     </>
   );
 }

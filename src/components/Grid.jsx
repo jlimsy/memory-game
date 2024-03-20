@@ -52,7 +52,9 @@ export default function Grid({
   }, [selectedCells, green, level, setComplete]);
 
   return (
-    <div className={`grid grid-cols-${grid} gap-3`}>
+    <div
+      className={`grid grid-cols-${grid} gap-3 justify-items-center justify-self-center`}
+    >
       {numCells.map((cell, idx) => (
         <Cell
           key={idx}
