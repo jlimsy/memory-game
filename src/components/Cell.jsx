@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
-import wrong from "../assets/wrong.mp3";
-import right from "../assets/beep.mp3";
+import wrongSound from "../assets/wrong.mp3";
+import rightSound from "../assets/beep.mp3";
 
 export default function Cell({
   id,
@@ -11,6 +11,8 @@ export default function Cell({
   setSelectedCells,
   isRunning,
   complete,
+  wrong,
+  setWrong,
 }) {
   const nodeRef = useRef(null);
   const [flip, setFlip] = useState(false);
@@ -25,11 +27,11 @@ export default function Cell({
   }, [complete]);
 
   function playWrong() {
-    new Audio(wrong).play();
+    new Audio(wrongSound).play();
   }
 
   function playRight() {
-    new Audio(right).play();
+    new Audio(rightSound).play();
   }
 
   const handleFlip = (event) => {
@@ -40,6 +42,10 @@ export default function Cell({
     if (!greenCells.includes(parseInt(event.target.id))) {
       setWiggle(true);
       playWrong();
+      setWrong(wrong + 1);
+      setTimeout(() => {
+        setWiggle(false);
+      }, 1000);
     }
 
     if (greenCells.includes(parseInt(event.target.id))) {
@@ -54,7 +60,7 @@ export default function Cell({
         nodeRef={nodeRef}
         in={!flip && !wiggle}
         timeout={1000}
-        classNames={flip ? "flip" : "shake"}
+        classNames={flip ? "flip" : wiggle ? "wiggle" : ""}
       >
         <div
           id={`${id}`}

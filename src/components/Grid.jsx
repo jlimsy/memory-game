@@ -16,6 +16,8 @@ export default function Grid({
   complete,
   setComplete,
   setRemainingCells,
+  wrong,
+  setWrong,
 }) {
   //* give each cell an id
   let numCells = [...Array(Math.pow(grid, 2))].map((cell, idx) => idx);
@@ -67,6 +69,8 @@ export default function Grid({
           setSelectedCells={setSelectedCells}
           isRunning={isRunning}
           complete={complete}
+          wrong={wrong}
+          setWrong={setWrong}
         />
       ))}
     </div>

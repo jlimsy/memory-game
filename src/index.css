@@ -74,6 +74,11 @@
 
 /* animations */
 
+.flip-enter {
+  transform: rotateY(180deg);
+  transition: transform 300ms;
+}
+
 .flip-exit {
   transform: rotateY(0deg);
 }
@@ -88,15 +93,22 @@
 
 }
 
-.shake-exit {
+.wiggle-exit {
   transform: translateX(0%);
 }
 
-.shake-exit-active {
-  animation: shake 300ms infinite;
+.wiggle-exit-active {
+  animation: wiggle 300ms infinite;
 }
 
-@keyframes shake {
+.wiggle-exit-done {
+  transform: translateX(0%);
+}
+
+
+
+
+@keyframes wiggle {
   0%, 100% {
     transform: translateX(0%);
   }

@@ -39,15 +39,15 @@ export default function WelcomePage() {
               Level {level}
             </h1>
           ) : (
-            <h1 className="text-center text-3xl mb-5 text-green-500">
+            <h1 className="text-center text-5xl mb-5 text-green-500">
               Memory game
             </h1>
           )}
         </div>
 
         {start || (
-          <div className="flex flex-col max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow ml-10 mr-10">
-            <h2 className="text-left mb-6">Instructions</h2>
+          <div className="flex flex-col max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow mt-5 ml-10 mr-10">
+            <h1 className="text-left mb-6 text-neutral-800">Instructions</h1>
             <ol className="space-y-6 mb-4 text-left list-decimal list-inside font-normal">
               <li>
                 You have{" "}

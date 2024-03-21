@@ -10,20 +10,17 @@ export default function Modal({
   setSelectedCells,
   complete,
   setComplete,
+  setWrong,
 }) {
   const handleLevel = (event) => {
     setLevel(level + 1);
-    // if (event.target.id === "next-level") {
-    //   setLevel(level + 1);
-    // } else if (event.target.id === "restart-level") {
-    //   setLevel(level);
-    // }
     setGrid(gridSize[`level${level}`].size);
     setShow(true);
     setSeconds(3);
     setIsRunning(true);
     setSelectedCells([]);
     setComplete(false);
+    setWrong(0);
   };
 
   const handleRestart = () => {

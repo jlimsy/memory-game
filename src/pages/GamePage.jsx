@@ -21,6 +21,7 @@ export default function GamePage({
   const [remainingCells, setRemainingCells] = useState(
     gridSize[`level${level}`].green
   );
+  const [wrong, setWrong] = useState(0);
 
   const handleRestart = () => {
     window.location.reload();
@@ -45,6 +46,7 @@ export default function GamePage({
           </span>
           {remainingCells === gridSize[`level${level}`].size ? "." : " left."}
         </p>
+        {wrong > 0 && <p className="text-orange-500">Wrong guesses: {wrong}</p>}
       </div>
 
       <Grid
@@ -62,6 +64,8 @@ export default function GamePage({
         setComplete={setComplete}
         remainingCells={remainingCells}
         setRemainingCells={setRemainingCells}
+        wrong={wrong}
+        setWrong={setWrong}
       />
 
       {(level <= 10 && !complete) || (
@@ -77,6 +81,7 @@ export default function GamePage({
             setSelectedCells={setSelectedCells}
             complete={complete}
             setComplete={setComplete}
+            setWrong={setWrong}
           />
         </>
       )}
