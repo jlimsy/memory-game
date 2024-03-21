@@ -28,7 +28,7 @@ export default function GamePage({
 
   return (
     <div className="grid gap-3">
-      <div className="text-center mb-5 p-5 bg-white border border-gray-200 rounded-lg shadow">
+      <div className="text-center mb-5 p-5 mr-10 ml-10 bg-white border border-gray-200 rounded-lg shadow">
         {isRunning ? <Timer seconds={seconds} /> : <h1>Your turn</h1>}
         <p>
           to remember where the{" "}
