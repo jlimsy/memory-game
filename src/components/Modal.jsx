@@ -10,8 +10,12 @@ export default function Modal({
   setSelectedCells,
   setComplete,
 }) {
-  const handleLevel = () => {
-    setLevel(level + 1);
+  const handleLevel = (event) => {
+    if (event.target.id === "next-level") {
+      setLevel(level + 1);
+    } else if (event.target.id === "restart-level") {
+      setLevel(level);
+    }
     setGrid(gridSize[`level${level}`].size);
     setShow(true);
     setSeconds(3);
@@ -19,6 +23,16 @@ export default function Modal({
     setSelectedCells([]);
     setComplete(false);
   };
+
+  // const handleRestartLevel = () => {
+  //   setLevel(level);
+  //   setGrid(gridSize[`level${level}`].size);
+  //   setShow(true);
+  //   setSeconds(3);
+  //   setIsRunning(true);
+  //   setSelectedCells([]);
+  //   setComplete(false);
+  // };
 
   return (
     <div className="overflow-y-auto overflow-x-hidden fixed z-50 justify-center items-center">
@@ -28,13 +42,21 @@ export default function Modal({
             <h1>You have completed this level!</h1>
           </div>
 
-          <div className="flex items-center justify-center p-4 md:p-5 border-t border-gray-200 rounded-b">
+          <div className="flex items-center justify-center p-4 md:p-5 border-gray-200 rounded-b">
             <button
-              type="button"
-              className="text-white bg-green-400 hover:bg-green-500 rounded-lg text-sm px-5 py-2.5 text-center"
+              id="next-level"
+              className="text-white bg-green-400 hover:bg-green-500 border-2 border-green-400 rounded-lg mr-5 px-5 py-2.5 text-center"
               onClick={handleLevel}
             >
-              Go to the Next Level
+              Next Level
+            </button>
+
+            <button
+              type="restart-level"
+              className="text-green-400 bg-white hover:bg-neutral-200 border-2 border-neutral-400 rounded-lg px-5 py-2.5 text-center"
+              onClick={handleLevel}
+            >
+              Restart Level
             </button>
           </div>
         </div>
