@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { CSSTransition } from "react-transition-group";
+import wrong from "../assets/wrong.mp3";
+import right from "../assets/beep.mp3";
 
 export default function Cell({
   id,
@@ -23,6 +25,14 @@ export default function Cell({
     }
   }, [complete]);
 
+  function playWrong() {
+    new Audio(wrong).play();
+  }
+
+  function playRight() {
+    new Audio(right).play();
+  }
+
   const handleFlip = (event) => {
     if (!selectedCells.includes(event.target.id)) {
       setSelectedCells([...selectedCells, event.target.id]);
@@ -30,10 +40,12 @@ export default function Cell({
 
     if (!greenCells.includes(parseInt(event.target.id))) {
       setWiggle(true);
+      playWrong();
     }
 
     if (greenCells.includes(parseInt(event.target.id))) {
       setFlip(true);
+      playRight();
     }
   };
 
