@@ -49,6 +49,7 @@ export default function GamePage({
 
       <Grid
         grid={grid}
+        setGrid={setGrid}
         show={show}
         setShow={setShow}
         level={level}

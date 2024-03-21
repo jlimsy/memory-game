@@ -20,6 +20,30 @@
     button {
         @apply  py-2 px-4 rounded bg-green-400 text-white hover:bg-green-500;
     }
+
+    .grid-cols-3 > .cell {
+      @apply h-24 w-24 md:h-32 md:w-32
+    }
+
+    .grid-cols-4 > .cell {
+      @apply h-20 w-20 md:h-32 md:w-32
+    }
+
+    .grid-cols-5 > .cell {
+      @apply h-16 w-16 md:h-32 md:w-32
+
+    }
+
+    .grid-cols-6 > .cell {
+      @apply h-12 w-12 md:h-32 md:w-32
+
+    }
+
+    .grid-cols-7 > .cell {
+      @apply md:h-32 md:w-32
+    }
+    
+
   }
 
 /* dynamic screen size */
@@ -27,6 +51,7 @@
 .grid-cols-3 {
   grid-template-columns: repeat(3, 1fr);
 }
+
 
 .grid-cols-4 {
   grid-template-columns: repeat(4, 1fr);
@@ -36,13 +61,16 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
+
 .grid-cols-6 {
   grid-template-columns: repeat(6, 1fr);
 }
 
+
 .grid-cols-7 {
   grid-template-columns: repeat(7, 1fr);
 }
+
 
 /* animations */
 

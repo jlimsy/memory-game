@@ -60,7 +60,7 @@ export default function Cell({
         <div
           id={`${id}`}
           ref={nodeRef}
-          className={`border border-neutral-600 h-20 w-20 md:h-30 md:w-30 rounded-lg  shadow ${
+          className={`cell border border-neutral-600 h-20 w-20 md:h-30 md:w-30 rounded-lg  shadow ${
             greenCells.includes(id) && (show || flip || complete)
               ? "bg-green-400"
               : "bg-neutral-50"

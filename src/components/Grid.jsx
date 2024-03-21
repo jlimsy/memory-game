@@ -4,6 +4,7 @@ import gridSize from "../utils/gridSize";
 
 export default function Grid({
   grid,
+  setGrid,
   show,
   setShow,
   level,
@@ -14,13 +15,21 @@ export default function Grid({
   isRunning,
   complete,
   setComplete,
-  remainingCells,
   setRemainingCells,
 }) {
   //* give each cell an id
   let numCells = [...Array(Math.pow(grid, 2))].map((cell, idx) => idx);
+  console.log(
+    "level:",
+    level,
+    "grid:",
+    grid,
+    "js file",
+    gridSize[`level${level}`].size
+  );
 
   useEffect(() => {
+    setGrid(gridSize[`level${level}`].size);
     //* randomly assign cell ids to be set to green
     numCells.sort(() => Math.random() - 0.5);
 
