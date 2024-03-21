@@ -80,7 +80,12 @@ export default function GamePage({
         </>
       )}
 
-      {level === 10 && <button onClick={handleRestart}>Restart Game</button>}
+      <button
+        className="bg-neutral-200 border-2 border-neutral-300 text-green-400 hover:bg-neutral-300 w-1/2 justify-self-center mt-5"
+        onClick={handleRestart}
+      >
+        Exit Game
+      </button>
     </div>
   );
 }

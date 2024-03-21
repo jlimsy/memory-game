@@ -41,8 +41,8 @@ export default function WelcomePage() {
 
         {start || (
           <div className="flex flex-col max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow ml-10 mr-10">
-            <h2 className="text-left mb-4">Instructions</h2>
-            <ol className="space-y-4 mb-4 text-left list-decimal list-inside font-normal">
+            <h2 className="text-left mb-6">Instructions</h2>
+            <ol className="space-y-6 mb-4 text-left list-decimal list-inside font-normal">
               <li>
                 You are given{" "}
                 <span className="font-bold text-green-500">
@@ -50,7 +50,14 @@ export default function WelcomePage() {
                 </span>{" "}
                 to remember where the green squares are.
               </li>
-              <li> After 15 seconds, the green squares will be hidden.</li>
+              <li>
+                {" "}
+                After{" "}
+                <span className="font-bold text-green-500">
+                  {seconds} seconds
+                </span>{" "}
+                , the green squares will be hidden.
+              </li>
               <li>
                 Click on where the{" "}
                 <span className="font-bold text-green-500">green squares</span>{" "}

@@ -35,11 +35,17 @@ export default function Modal({
       <div className="relative p-4 w-auto max-h-full">
         <div className="relative bg-white rounded-lg shadow">
           <div className="flex items-center justify-between p-4 md:p-5 rounded-t">
-            {level < 10 && <h1>You have completed this level!</h1>}
+            {level < 10 && (
+              <h1 className="text-neutral-800">
+                You have completed this level!
+              </h1>
+            )}
             {level === 10 && (
               <div className="text-center">
-                <h1 className="text-green-500">Congratulations,</h1>
-                <h1>You have completed all levels!</h1>
+                <h1>Congratulations,</h1>
+                <h1 className="text-neutral-800">
+                  You have completed all levels!
+                </h1>
               </div>
             )}
           </div>

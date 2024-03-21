@@ -13,6 +13,7 @@ export default function Cell({
 }) {
   const nodeRef = useRef(null);
   const [flip, setFlip] = useState(false);
+  const [wiggle, setWiggle] = useState(false);
 
   let greenCells = green;
 
@@ -27,6 +28,10 @@ export default function Cell({
       setSelectedCells([...selectedCells, event.target.id]);
     }
 
+    if (!greenCells.includes(parseInt(event.target.id))) {
+      setWiggle(true);
+    }
+
     if (greenCells.includes(parseInt(event.target.id))) {
       setFlip(true);
     }
@@ -36,9 +41,9 @@ export default function Cell({
     <>
       <CSSTransition
         nodeRef={nodeRef}
-        in={!flip}
+        in={!flip && !wiggle}
         timeout={1000}
-        classNames="flip"
+        classNames={flip ? "flip" : "shake"}
       >
         <div
           id={`${id}`}
