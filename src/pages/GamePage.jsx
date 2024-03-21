@@ -43,7 +43,7 @@ export default function GamePage({
           <span className="text-green-500">
             {remainingCells} green {remainingCells === 1 ? "square" : "squares"}
           </span>
-          {remainingCells === gridSize.level1.size ? "." : " left."}
+          {remainingCells === gridSize[`level${level}`].size ? "." : " left."}
         </p>
       </div>
 
@@ -63,7 +63,7 @@ export default function GamePage({
         setRemainingCells={setRemainingCells}
       />
 
-      {(level < 10 && !complete) || (
+      {(level <= 10 && !complete) || (
         <>
           <div className="opacity-75 fixed inset-0 z-40 bg-black"></div>
           <Modal
@@ -74,6 +74,7 @@ export default function GamePage({
             setSeconds={setSeconds}
             setIsRunning={setIsRunning}
             setSelectedCells={setSelectedCells}
+            complete={complete}
             setComplete={setComplete}
           />
         </>

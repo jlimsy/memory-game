@@ -8,6 +8,7 @@ export default function Modal({
   setSeconds,
   setIsRunning,
   setSelectedCells,
+  complete,
   setComplete,
 }) {
   const handleLevel = (event) => {
@@ -25,33 +26,47 @@ export default function Modal({
     setComplete(false);
   };
 
-  // const handleRestartLevel = () => {
-  //   setLevel(level);
-  //   setGrid(gridSize[`level${level}`].size);
-  //   setShow(true);
-  //   setSeconds(3);
-  //   setIsRunning(true);
-  //   setSelectedCells([]);
-  //   setComplete(false);
-  // };
+  const handleRestart = () => {
+    window.location.reload();
+  };
 
   return (
     <div className="overflow-y-auto overflow-x-hidden fixed inset-0 flex z-50 justify-center items-center">
-      <div className="relative p-4 w-full w-auto max-h-full">
+      <div className="relative p-4 w-auto max-h-full">
         <div className="relative bg-white rounded-lg shadow">
           <div className="flex items-center justify-between p-4 md:p-5 rounded-t">
-            <h1>You have completed this level!</h1>
+            {level < 10 && <h1>You have completed this level!</h1>}
+            {level === 10 && (
+              <div className="text-center">
+                <h1 className="text-green-500">Congratulations,</h1>
+                <h1>You have completed all levels!</h1>
+              </div>
+            )}
           </div>
 
-          <div className="flex items-center justify-center p-4 md:p-5 border-gray-200 rounded-b">
-            <button
-              id="next-level"
-              className="text-white bg-green-400 hover:bg-green-500 border-2 border-green-400 rounded-lg px-5 py-2.5 text-center"
-              onClick={handleLevel}
-            >
-              Next Level
-            </button>
-          </div>
+          {level < 10 && (
+            <div className="flex items-center justify-center p-4 md:p-5 border-gray-200 rounded-b">
+              <button
+                id="next-level"
+                className="text-white bg-green-400 hover:bg-green-500 border-2 border-green-400 rounded-lg px-5 py-2.5 text-center"
+                onClick={handleLevel}
+              >
+                Next Level
+              </button>
+            </div>
+          )}
+
+          {level === 10 && (
+            <div className="flex items-center justify-center p-4 md:p-5 border-gray-200 rounded-b">
+              <button
+                id="next-level"
+                className="text-white bg-green-400 hover:bg-green-500 border-2 border-green-400 rounded-lg px-5 py-2.5 text-center"
+                onClick={handleRestart}
+              >
+                Restart Game{" "}
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </div>
