@@ -25,7 +25,7 @@ export default function WelcomePage() {
   };
 
   return (
-    <div className="flex flex-col h-screen mx-auto my-auto justify-center items-center">
+    <div className="flex flex-col h-dvh mx-auto my-auto justify-center items-center">
       <div className="">
         {start ? (
           <h1 className="text-center text-3xl mb-5 text-green-500">
