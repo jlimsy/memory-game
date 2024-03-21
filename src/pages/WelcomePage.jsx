@@ -26,7 +26,7 @@ export default function WelcomePage() {
 
   return (
     <div className="">
-      <div className="flex flex-col mt-20 mx-auto my-auto justify-center items-center">
+      <div className="flex flex-col mt-10 md:mt-20 mx-auto my-auto justify-center items-center">
         <div className="">
           {start ? (
             <h1 className="text-center text-3xl mb-5 text-green-500">
@@ -44,7 +44,7 @@ export default function WelcomePage() {
             <h2 className="text-left mb-6">Instructions</h2>
             <ol className="space-y-6 mb-4 text-left list-decimal list-inside font-normal">
               <li>
-                You are given{" "}
+                You have{" "}
                 <span className="font-bold text-green-500">
                   {seconds} seconds
                 </span>{" "}
