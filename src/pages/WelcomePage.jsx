@@ -39,7 +39,7 @@ export default function WelcomePage() {
       </div>
 
       {start || (
-        <div className="flex flex-col max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow">
+        <div className="flex flex-col max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow ml-10 mr-10">
           <h2 className="text-left mb-4">Instructions</h2>
           <ol className="space-y-4 mb-4 text-left list-decimal list-inside font-normal">
             <li>
