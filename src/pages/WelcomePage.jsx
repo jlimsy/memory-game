@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import GamePage from "./GamePage";
+import startGame from "../assets/start.mp3";
 
 export default function WelcomePage() {
   const [start, setStart] = useState(false);
@@ -18,10 +19,15 @@ export default function WelcomePage() {
     }
   }, [seconds]);
 
+  function playStart() {
+    new Audio(startGame).play();
+  }
+
   const handleStart = () => {
     setStart(true);
     setIsRunning(true);
     seconds > 0 && setTimeout(() => setSeconds(seconds - 1), 1000);
+    playStart();
   };
 
   return (

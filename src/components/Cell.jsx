@@ -7,7 +7,6 @@ export default function Cell({
   id,
   green,
   show,
-  setShow,
   selectedCells,
   setSelectedCells,
   isRunning,

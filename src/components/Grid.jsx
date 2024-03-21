@@ -19,14 +19,6 @@ export default function Grid({
 }) {
   //* give each cell an id
   let numCells = [...Array(Math.pow(grid, 2))].map((cell, idx) => idx);
-  console.log(
-    "level:",
-    level,
-    "grid:",
-    grid,
-    "js file",
-    gridSize[`level${level}`].size
-  );
 
   useEffect(() => {
     setGrid(gridSize[`level${level}`].size);
