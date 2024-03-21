@@ -40,7 +40,7 @@
     }
 
     .grid-cols-7 > .cell {
-      @apply md:h-32 md:w-32
+      @apply h-11 w-11 md:h-32 md:w-32
     }
     
 
