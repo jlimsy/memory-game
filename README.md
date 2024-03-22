@@ -1,5 +1,5 @@
 # Memory Game
 
 Visit https://memory-drc.vercel.app/ to play.
-
-https://youtu.be/UAWaoX4xDgM
+View game features in this video:
+[https://youtu.be/UAWaoX4xDgM](https://youtu.be/UAWaoX4xDgM)
