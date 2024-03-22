@@ -31,9 +31,9 @@ export default function Modal({
     <div className="overflow-y-auto overflow-x-hidden fixed inset-0 flex z-50 justify-center items-center">
       <div className="relative p-4 w-auto max-h-full">
         <div className="relative bg-white rounded-lg shadow">
-          <div className="flex items-center justify-between p-4 md:p-5 rounded-t">
+          <div className="flex items-center justify-between p-4 md:p-5 rounded-t text-center">
             {level < 10 && (
-              <h1 className="text-neutral-800">
+              <h1 className="text-neutral-800 ">
                 You have completed this level!
               </h1>
             )}

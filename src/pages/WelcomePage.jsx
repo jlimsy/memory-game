@@ -61,7 +61,7 @@ export default function WelcomePage() {
                 After{" "}
                 <span className="font-bold text-green-500">
                   {seconds} seconds
-                </span>{" "}
+                </span>
                 , the green squares will be hidden.
               </li>
               <li>
