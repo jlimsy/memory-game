@@ -26,21 +26,21 @@
     }
 
     .grid-cols-4 > .cell {
-      @apply h-20 w-20 md:h-32 md:w-32
+      @apply h-20 w-20 lg:h-24 lg:w-24 2xl:h-28 2xl:w-28
     }
 
     .grid-cols-5 > .cell {
-      @apply h-16 w-16 md:h-32 md:w-32
+      @apply h-16 w-16 md:h-20 md:w-20 lg:h-24 lg:w-24
 
     }
 
     .grid-cols-6 > .cell {
-      @apply h-12 w-12 md:h-32 md:w-32
+      @apply h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20
 
     }
 
     .grid-cols-7 > .cell {
-      @apply h-11 w-11 md:h-32 md:w-32
+      @apply h-11 w-11 md:h-16 md:w-16 lg:h-20 lg:w-20
     }
     
 

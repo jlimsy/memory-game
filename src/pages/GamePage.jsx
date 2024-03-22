@@ -36,7 +36,7 @@ export default function GamePage({
           <span className="text-green-500">green squares</span> are:
         </p>
       </div>
-      <div className="text-center">
+      <div className="text-center flex justify-between ml-10 mr-10">
         {" "}
         <p>
           {" "}

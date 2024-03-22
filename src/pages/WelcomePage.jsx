@@ -32,7 +32,7 @@ export default function WelcomePage() {
 
   return (
     <div className="">
-      <div className="flex flex-col mt-10 md:mt-20 mx-auto my-auto justify-center items-center">
+      <div className="flex flex-col mt-8 md:mt-10 2xl:mt-20 mx-auto my-auto justify-center items-center">
         <div className="">
           {start ? (
             <h1 className="text-center text-3xl mb-5 text-green-500">
