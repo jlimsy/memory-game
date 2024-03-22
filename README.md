@@ -2,6 +2,4 @@
 
 Visit https://memory-drc.vercel.app/ to play.
 
-## Video
-
-![Memory Game Video](src/assets/memory_comp.mp4)
+https://youtu.be/UAWaoX4xDgM
