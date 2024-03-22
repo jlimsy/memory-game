@@ -36,7 +36,7 @@ export default function GamePage({
           <span className="text-green-500">green squares</span> are:
         </p>
       </div>
-      <div className="text-center flex justify-between ml-10 mr-10">
+      <div className="text-center ">
         {" "}
         <p>
           {" "}
@@ -46,7 +46,9 @@ export default function GamePage({
           </span>
           {remainingCells === gridSize[`level${level}`].size ? "." : " left."}
         </p>
-        {wrong > 0 && <p className="text-orange-500">Wrong guesses: {wrong}</p>}
+        <p className={wrong > 0 ? "text-orange-500" : "text-neutral-300"}>
+          Wrong guesses: {wrong}
+        </p>
       </div>
 
       <Grid
